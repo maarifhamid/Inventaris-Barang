@@ -195,8 +195,6 @@ class PeminjamanController extends Controller
         $peminjaman = DB::table("peminjaman")
             ->join('barangs', function ($join) {
                 $join->on('peminjaman.id_barang', '=', 'barangs.id_barang');
-            })->join('users', function ($join) {
-                $join->on('peminjaman.id_user', '=', 'users.id');
             })->get();
 
         $barang = DB::table('barangs')->get();

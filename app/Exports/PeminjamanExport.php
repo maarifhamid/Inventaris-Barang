@@ -15,6 +15,6 @@ class PeminjamanExport implements FromCollection
         return DB::table("peminjaman")
             ->join('barangs', function ($join) {
                 $join->on('peminjaman.id_barang', '=', 'barangs.id_barang');
-            })->select('no_peminjaman','nama_peminjam','nama_barang','jumlah_pinjam','tanggal_pinjam','tanggal_kembali','status')->get();
+            })->select('nama_peminjam','nama_barang','jumlah_pinjam','tanggal_pinjam','tanggal_kembali','status')->get();
     }
 }
