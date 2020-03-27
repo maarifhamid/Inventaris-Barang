@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tutorial belajar JQuery Part 9 : Menambah Element dengan JQuery</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h1>Add Function JQuery | www.malasngoding.com</h1>
+    <div class="kotak">
+        <span>ISI KOTAK</span>
+    </div>
+
+    <button class="after">Tes after</button>
+    <button class="before">Tes before</button>
+    <button class="append" type="button">Tes append</button>
+    <button class="prepend">Tes prepend</button>
+</body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.after').click(function () {
+            $('.kotak').after("<h4>contoh after</h4>")
+        });
+
+        $('.before').click(function () {
+            $('.kotak').before("<h4>contoh before</h4>")
+        });
+
+        $('.append').click(function () {
+            $('.kotak').append("<h4>contoh append</h4>")
+        });
+
+        $('.prepend').click(function () {
+            $('.kotak').prepend("<h4>contoh prepend</h4>")
+        });
+    });
+</script>
+
+</html>
