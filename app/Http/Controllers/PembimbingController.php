@@ -19,7 +19,7 @@ class PembimbingController extends Controller
 
     public function pembimbing()
     {
-    if (Auth::user()->level=='rayon' || Auth::user()->level=='pj') {
+    if (Auth::user()->level=='kasi' || Auth::user()->level=='pj') {
         $cek=DB::table('ruangan')->where('id_pembimbing',Auth::user()->id)->orWhere('id_pj',Auth::user()->id)->get();
             foreach($cek as $c)
                     {

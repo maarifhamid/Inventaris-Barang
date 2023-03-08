@@ -1,3 +1,4 @@
+{{-- layout dan konten --}}
 @extends('layouts.layout')
 @section('content')
 <title>Data Kategori</title>
@@ -7,9 +8,11 @@
 </div>
 <div class="card-body">
   <div class="table-responsive">
+    {{-- button tambah data --}}
     <button class="btn btn-success" data-toggle="modal" data-target="#tambah">Tambah Data</button>
       <br>
       <br>
+      {{-- tabel --}}
       <table id="dataTable" class="table table-bordered" cellspacing="0">
           <thead>
             <tr>
@@ -18,6 +21,7 @@
                   <th>Opsi</th>
             </tr>
           </thead>
+          {{-- tampilkan data ditabel --}}
           <tbody>
             @foreach ($kategori as $i => $u)
             <tr class="data-row">
@@ -25,8 +29,9 @@
               <td class="align-middle id_barang">{{ $u->nama_kategori }}</td>
               <td>  
                 <div class="row">
+                  {{-- button edit dan hapus --}}
                    <a href="/kategori/edit/{{ $u->id_kategori}}" class="btn btn-primary btn-sm ml-2">Edit</a>
-                   {{-- <a href="/kategori/hapus/{{ $u->id_kategori }}" class="btn btn-danger btn-sm ml-2">Hapus</a> --}}
+                   <a href="/kategori/hapus/{{ $u->id_kategori }}" class="btn btn-danger btn-sm ml-2">Hapus</a>
                 </div>
               </td>
             </tr>
@@ -36,6 +41,7 @@
   </div>
 </div>
 
+{{-- form tambah kategori --}}
   <div id="tambah" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <!-- Modal content-->
@@ -47,7 +53,8 @@
           </button>
         </div>
         <div class="modal-body">
-        <form action="/kategori/store" method="post">
+          {{-- panggil route --}}
+        <form action="/kategori/store" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
           <div class="form-group">
               <label for="">Kategori</label>
@@ -55,7 +62,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          {{-- button kembali dan simpan --}}
+          <button type="button" class="btn btn-default" data-dismiss="modal">Kembali</button>
           <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
         </div>

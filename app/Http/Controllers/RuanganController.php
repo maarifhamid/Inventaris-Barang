@@ -28,14 +28,14 @@ class RuanganController extends Controller
 		// 				$join->on('users.id', '=', 'ruangan.id_pj');
 		// 		})->get();
 		
-		$pembimbing=DB::table('users')->where('level','rayon')->get();
-		$pj=DB::table('users')->where('level','pj')->get();
+		$pembimbing=DB::table('users')->where('level','kasi')->get();
+		// $pj=DB::table('users')->where('level','pj')->get();
 
 		$users = DB::table('users')->get();
 		$ruangan = DB::table('ruangan')->get();
  
     	// mengirim data jenis ke view index
-    	return view('ruangan.view',compact('ruangan','pembimbing','pj','users'));
+    	return view('ruangan.view',compact('ruangan','pembimbing','users'));
  
     }
 
@@ -46,7 +46,7 @@ class RuanganController extends Controller
 		DB::table('ruangan')->insert([
 			'ruangan' => $request->ruangan,
 			'id_pembimbing'=>$request->id_pembimbing,
-			'id_pj'=>$request->id_pj
+			// 'id_pj'=>$request->id_pj
 			
 		]);
 		// alihkan halaman ke halaman jenis
@@ -59,13 +59,13 @@ class RuanganController extends Controller
 	public function edit($id)
 	{
 
-		$pembimbing=DB::table('users')->where('level','rayon')->get();
-		$pj=DB::table('users')->where('level','pj')->get();
+		$pembimbing=DB::table('users')->where('level','kasi')->get();
+		// $pj=DB::table('users')->where('level','pj')->get();
 
 		$users = DB::table('users')->get();
 		$ruangan = DB::table('ruangan')->where('id_ruangan',$id)->first();
 
-		return view('ruangan.edit',compact('users','ruangan','pj','pembimbing'));
+		return view('ruangan.edit',compact('users','ruangan','pembimbing'));
 	 
 	}
 
@@ -76,7 +76,7 @@ class RuanganController extends Controller
 		DB::table('ruangan')->where('id_ruangan',$request->id_ruangan)->update([
 			'ruangan' => $request->ruangan,
 			'id_pembimbing'=>$request->id_pembimbing,
-			'id_pj'=>$request->id_pj
+			// 'id_pj'=>$request->id_pj
 		]);
 		// alihkan halaman ke halaman jenis
 		Alert::success('Success', 'Data Telah Terupdate');

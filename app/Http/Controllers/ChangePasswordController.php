@@ -25,6 +25,8 @@ class ChangePasswordController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    //  fungsi menampilkan halaman ubah password
     public function index()
     {
         return view('changePassword');
@@ -35,6 +37,8 @@ class ChangePasswordController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    //  fungsi menampilkan data password
     public function store(Request $request)
     {
         $request->validate([
@@ -42,9 +46,10 @@ class ChangePasswordController extends Controller
             'new_password' => ['required'],
             'new_confirm_password' => ['same:new_password'],
         ]);
-   
+            // fungsi untuk update password dengan hash
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
    
+        // pesan sukses terupdate
         Alert::success('Success', 'Password Telah Diganti');
         return redirect('/home');
     }

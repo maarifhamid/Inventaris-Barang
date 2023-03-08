@@ -1,3 +1,4 @@
+{{-- set layout dan konten --}}
 @extends('layouts.layout') @section('content')
 <title>Edit Data</title>
 <div class="card-header py-3">
@@ -5,8 +6,10 @@
 </div>
 <div class="card-body">
     <div class="x_content">
-        <form action="/keluar/update" method="post">
+        {{-- panggil route keluar/update  --}}
+        <form action="/keluar/update" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
+            {{-- form edit keluar --}}
             <input type="hidden" value="{{$keluar2->id_keluar}}" name="id_keluar">
             <div class="form-group">
                 <label for="">Barang</label>
@@ -31,6 +34,7 @@
                 <input type="date" name="tanggal_keluar" class="form-control" value="{{$keluar2->tanggal_keluar}}" required>
             </div>
     </div>
+    {{-- button simpan --}}
     <button type="submit" class="btn btn-primary">Simpan</button>
     </form>
 

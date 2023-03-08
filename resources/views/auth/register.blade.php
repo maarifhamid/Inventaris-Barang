@@ -76,12 +76,14 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="level" class="col-md-4 col-form-label text-md-right">{{ __('Level') }}</label>
 
                             <div class="col-md-6">
                                 <select name="level" class="form-control">
                                     <option value="admin">Admin</option>
-                                    <option value="pj_ruangan">Pj Ruangan</option>
+                                    <option value="kasi">KASI</option>
+                                    {{-- <option value="pj_ruangan">Pj Ruangan</option> --}}
+                                    <option value="pegawai">Pegawai</option>
                                 </select>
                             </div>
                         </div>

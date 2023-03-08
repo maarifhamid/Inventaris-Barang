@@ -17,7 +17,7 @@
                   <th>No</th>
                   <th>Penginput</th>
                   <th>Barang</th>
-                  <th>Jumlah Rusak</th>
+                  <th>Kondisi Rusak</th>
                   <th>Ruangan</th>
                   <th>Tanggal Rusak</th>
                   <th>Status</th>
@@ -64,7 +64,7 @@
           </button>
         </div>
         <div class="modal-body">
-        <form action="/keranjang_rusak_ruangan/store" method="post">
+        <form action="/keranjang_rusak_ruangan/store" method="post" enctype="multipart/form-data">
             @csrf
              <div class="form-group">
               <label for="">Ruangan</label>
@@ -92,7 +92,7 @@
                     </div>
                 </td>
                 <td class="pl-3">
-                  <label for="">Jumlah Rusak</label>
+                  <label for="">Jumlah Kondisi Rusak</label>
                 <input type="number" name="jumlah[]" class="form-control" required placeholder="Masukan Jumlah" required>
                 </td>
               </tr>
@@ -106,7 +106,7 @@
              
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Kembali</button>
           <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
         </div>

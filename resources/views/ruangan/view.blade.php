@@ -15,8 +15,8 @@
             <tr>
                   <th>No</th>
                   <th>Ruangan</th>
-                  <th>Pembimbing</th>
-                  <th>Pj Ruangan</th>
+                  <th>KASI</th>
+                  {{-- <th>Penanggungjawab Ruangan</th> --}}
                   <th>Opsi</th>
             </tr>
           </thead>
@@ -26,11 +26,11 @@
               <td class="align-middle iteration">{{ ++$i }}</td>
               <td class="align-middle id_barang">{{ $u->ruangan }}</td>
               <td class="align-middle id_barang">{{ $users->where('id', $u->id_pembimbing)->first()->name ?? null }}</td>
-              <td class="align-middle id_barang">{{ $users->where('id', $u->id_pj)->first()->name ?? null }}</td>
+              {{-- <td class="align-middle id_barang">{{ $users->where('id', $u->id_pj)->first()->name ?? null }}</td> --}}
               <td>  
                 <div class="row">
                    <a href="/ruangan/edit/{{ $u->id_ruangan}}" class="btn btn-primary btn-sm ml-2">Edit</a>
-                   {{-- <a href="/ruangan/hapus/{{ $u->id_ruangan }}" class="btn btn-danger btn-sm ml-2">Hapus</a> --}}
+                   <a href="/ruangan/hapus/{{ $u->id_ruangan }}" class="btn btn-danger btn-sm ml-2">Hapus</a>
                 </div>
               </td>
             </tr>
@@ -51,33 +51,33 @@
           </button>
         </div>
         <div class="modal-body">
-        <form action="/ruangan/store" method="post">
+        <form action="/ruangan/store" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
           <div class="form-group">
               <label for="">Ruangan</label>
               <input type="text" name="ruangan" class="form-control"  required>
           </div>
           <div class="form-group">
-              <label for="">Pembimbing</label>
+              <label for="">KASI</label>
               <select name="id_pembimbing"  class="myselect" id="" style="width:100%">
-                <option value="" selected disabled>Pilih Pembimbing</option>
+                <option value="" selected disabled>Pilih KASI</option>
                 @foreach ($pembimbing as $a)
                     <option value="{{$a->id}}">{{$a->name}}</option>
                 @endforeach
               </select>
           </div>
-          <div class="form-group">
-              <label for="">Pj</label>
+          {{-- <div class="form-group">
+              <label for="">Penanggungjawab Ruangan</label>
               <select name="id_pj" class="myselect" id="" style="width:100%">
-                <option value="" selected disabled>Pilih Pj</option>
+                <option value="" selected disabled>Pilih Penanggungjawab Ruangan</option>
                 @foreach ($pj as $b)
                     <option value="{{$b->id}}">{{$b->name}}</option>
                 @endforeach
               </select>
-          </div>
+          </div> --}}
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Kembali</button>
           <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
         </div>

@@ -1,3 +1,4 @@
+{{-- set up layout dan konten --}}
 @extends('layouts.layout') @section('content')
 <title>Input Data</title>
 <div class="card-header py-3">
@@ -5,9 +6,10 @@
 </div>
 <div class="card-body">
     <div class="x_content">
-        <form action="/keranjang_masuk/store" method="post">
+      {{-- jalankan action --}}
+        <form action="/keranjang_masuk/store" method="post" enctype="multipart/form-data">
             @csrf
-         
+         {{-- form input --}}
           <div class="form-group">
             <label for="">Nama Barang</label>
                        <select name="id_barang" class="myselect" style="width:100%">
@@ -25,25 +27,25 @@
                                     
              <div class="form-group">
  <label for="">Harga Satuan</label>
-                    <input type="number" name="harga_satuan" id="txt2[]" onkeyup="sum();" class="form-control" required placeholder="Masukan Jumlah" required>
+                    <input type="number" name="harga_satuan" id="txt2[]" onkeyup="sum();" class="form-control" required placeholder="Masukan Harga Satuan" required>
                 
              </div>
                    
              <div class="form-group">
 <label for="">Harga Total</label>
-                    <input type="number" name="harga_total" id="txt3[]" readonly class="form-control" required placeholder="Masukan Jumlah" required>
+                    <input type="number" name="harga_total" id="txt3[]" readonly class="form-control" required placeholder="Harga Total" required>
                 
              </div>
                     
              <div class="form-group">
 <label for="">Nama Toko</label>
-                    <input type="text" name="nama_toko" class="form-control" required placeholder="Masukan Jumlah" required>
+                    <input type="text" name="nama_toko" class="form-control" required placeholder="Masukan Nama Toko" required>
                 
              </div>
                     
              <div class="form-group">
 <label for="">Merek</label>
-                    <input type="text" name="merek" class="form-control" required placeholder="Masukan Jumlah" required>
+                    <input type="text" name="merek" class="form-control" required placeholder="Masukan Merek" required>
                 
              </div>
                     
@@ -59,11 +61,12 @@
              
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Kembali</button>
           <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
 </div>
 
+{{-- script tambah field --}}
 @push('scripts')
   <script type="text/javascript">
         $(document).ready(function() {
@@ -77,17 +80,19 @@
 		if(x < max_fields){ //max input box allowed
 			x++; //text box increment
       
+      // tambahkan form kalo tambah field
 			$(wrapper).append('<div><table><tr><td><select name="id_barang[]" id="" class="form-control"><option selected disabled>-----Pilih Jenis Barang-----</option>@foreach ($barang as $j)<option value="{{$j->id_barang}}">{{$j->nama_barang}}</option>@endforeach</select></div></td><td class="pl-2"><input type="number" name="jumlah[]" id="txt1[]" onkeyup="sum();" class="form-control" required placeholder="Masukan Jumlah" required></td><td class="pl-2"><input type="number" name="harga_satuan[]" id="txt2[]" onkeyup="sum();" class="form-control" required placeholder="Masukan Jumlah" required></td><td class="pl-2"><input type="number" name="harga_total[]" id="txt3[]" class="form-control" required placeholder="Masukan Jumlah" required></td><td class="pl-2"><input type="text" name="nama_toko[]" class="form-control" required placeholder="Masukan Jumlah" required></td><td class="pl-2"><input type="text" name="merek[]" class="form-control" required placeholder="Masukan Jumlah" required></td></tr></table><a href="#" class="remove_field">Remove</a></div>');
 		}
   });
   
 
-	
+	// fungsi untuk hapus field 
 	$(wrapper).on("click",".remove_field", function(e){ //user click on remove text
 		e.preventDefault(); $(this).parent('div').remove(); x--;
 	})
 });
 
+// fungsi untuk jumlahkan harga total
 function sum() {
       var txtFirstNumberValue = document.getElementById('txt1[]').value;
       var txtSecondNumberValue = document.getElementById('txt2[]').value;

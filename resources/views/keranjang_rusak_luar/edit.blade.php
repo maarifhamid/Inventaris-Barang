@@ -5,7 +5,7 @@
 </div>
 <div class="card-body">
     <div class="x_content">
-        <form action="/keranjang_rusak_luar/update" method="post">
+        <form action="/keranjang_rusak_luar/update" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <input type="hidden" name="id_rusak_luar" value="{{$rusak2->id_rusak_luar}}">
             <div class="form-group">

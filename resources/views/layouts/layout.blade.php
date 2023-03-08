@@ -32,14 +32,14 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-success sidebar sidebar-success accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center">
         <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-book"></i>
+          <i class="fas fa-book" style="color:white"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Sarpras Wikrama</div>
+        <div class="sidebar-brand-text mx-4" style="color:white"> SIMASKU </div>
       </a>
 
       <!-- Divider -->
@@ -48,8 +48,8 @@
       <!-- Nav Item - Dashboard -->
       <li class="nav-item {{ (request()->is('home*')) ? 'active' : '' }}">
         <a class="nav-link " href="/home">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <i class="fas fa-fw fa-tachometer-alt" style="color:white"></i>
+          <span style="color:white">Dashboard</span></a>
       </li>
 
       <!-- Divider -->
@@ -57,15 +57,15 @@
       @if (Auth::user()->level=='admin')
 
       <!-- Heading -->
-      <div class="sidebar-heading">
+      <div class="sidebar-heading" style="color:white">
         Data - data
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item {{ (request()->is('barang*')) ? 'active' : '' }} {{ (request()->is('jenis*')) ? 'active' : '' }} {{ (request()->is('ruangan*')) ? 'active' : '' }}{{ (request()->is('kategori*')) ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Data Master</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" style="color:white">
+          <i class="fas fa-fw fa-cog" style="color:white"></i>
+          <span style="color:white">Data Master</span>
         </a>
         <div id="collapseTwo" class="collapse {{ (request()->is('barang*')) ? 'show' : '' }} {{ (request()->is('jenis*')) ? 'show' : '' }} {{ (request()->is('ruangan*')) ? 'show' : '' }} {{ (request()->is('kategori*')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -78,18 +78,18 @@
       </li>
 
 
-      <li class="nav-item {{ (request()->is('user*')) ? 'active' : '' }} {{ (request()->is('pj*')) ? 'active' : '' }} {{ (request()->is('rayon*')) ? 'active' : '' }} {{ (request()->is('bukan_pj*')) ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse0" aria-expanded="true" aria-controls="collapse0">
-          <i class="fas fa-fw fa-user"></i>
-          <span>Data User</span>
+      <li class="nav-item {{ (request()->is('user*')) ? 'active' : '' }} {{ (request()->is('pj*')) ? 'active' : '' }} {{ (request()->is('kasi*')) ? 'active' : '' }} {{ (request()->is('pegawai*')) ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse0" aria-expanded="true" aria-controls="collapse0" style="color:white">
+          <i class="fas fa-fw fa-user" style="color:white"></i>
+          <span style="color:white">Data User</span>
         </a>
-        <div id="collapse0" class="collapse {{ (request()->is('user*')) ? 'show' : '' }} {{ (request()->is('pj*')) ? 'show' : '' }} {{ (request()->is('rayon*')) ? 'show' : '' }} {{ (request()->is('bukan_pj*')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapse0" class="collapse {{ (request()->is('user*')) ? 'show' : '' }} {{ (request()->is('pj*')) ? 'show' : '' }} {{ (request()->is('kasi*')) ? 'show' : '' }} {{ (request()->is('pegawai*')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Data User</h6>
             <a class="collapse-item {{ (request()->is('user*')) ? 'active' : '' }}" href="{{url('user')}}">Admin</a>
-            <a class="collapse-item {{ (request()->is('rayon*')) ? 'active' : '' }}" href="{{url('rayon')}}">Pem. Rayon</a>
-            <a class="collapse-item {{ (request()->is('pj*')) ? 'active' : '' }}" href="{{url('pj')}}">Pj Ruangan</a>
-            <a class="collapse-item {{ (request()->is('bukan_pj*')) ? 'active' : '' }}" href="{{url('bukan_pj')}}">Bukan Pj</a>
+            <a class="collapse-item {{ (request()->is('kasi*')) ? 'active' : '' }}" href="{{url('kasi')}}">KASI</a>
+            {{-- <a class="collapse-item {{ (request()->is('pj*')) ? 'active' : '' }}" href="{{url('pj')}}">PJ Ruangan</a> --}}
+            <a class="collapse-item {{ (request()->is('pegawai*')) ? 'active' : '' }}" href="{{url('pegawai')}}">Pegawai</a>
           </div>
         </div>
       </li>
@@ -97,19 +97,19 @@
       {{-- <li class="nav-item {{ (request()->is('user*')) ? 'active' : '' }}">
         <a class="nav-link" href="{{url('user')}}">
           <i class="fas fa-fw fa-user"></i>
-          <span>User</span></a> --}}
+          <span style="color:white">User</span></a> --}}
       </li>
       <!-- Nav Item - Charts -->
       {{-- <li class="nav-item">
         <a class="nav-link" href="{{url('peminjaman')}}">
-          <i class="fas fa-fw fa-briefcase"></i>
-          <span>Peminjaman</span></a>
+          <i class="fas fa-fw fa-briefcase" style="color:white"></i>
+          <span style="color:white">Peminjaman</span></a>
       </li> --}}
 
        <li class="nav-item {{ (request()->is('keranjang_peminjaman*')) ? 'active' : '' }} {{ (request()->is('peminjaman*')) ? 'active' : '' }} ">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-briefcase"></i>
-          <span>Peminjaman</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapseTwo" style="color:white">
+          <i class="fas fa-fw fa-briefcase" style="color: white"></i>
+          <span style="color:white">Peminjaman</span>
         </a>
         <div id="collapse1" class="collapse {{ (request()->is('keranjang_peminjaman*')) ? 'show' : '' }} {{ (request()->is('peminjaman*')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -124,18 +124,18 @@
       {{-- <li class="nav-item">
         <a class="nav-link" href="{{url('input_ruangan')}}">
           <i class="fas fa-fw fa-university"></i>
-          <span>Barang Ruangan</span></a>
+          <span style="color:white">Barang Ruangan</span></a>
       </li> --}}
 
       <li class="nav-item {{ (request()->is('keranjang_ruangan*')) ? 'active' : '' }} {{ (request()->is('input_ruangan*')) ? 'active' : '' }}">
-        <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-university"></i>
-          <span>Barang Ruangan</span>
+        <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapseTwo" style="color:white">
+          <i class="fas fa-fw fa-university" style="color: white"></i>
+          <span style="color:white">Barang Ruangan</span>
         </a>
         <div id="collapse2" class="collapse {{ (request()->is('keranjang_ruangan*')) ? 'show' : '' }} {{ (request()->is('input_ruangan*')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Data Barang Ruangan</h6>
-            <a class="collapse-item {{ (request()->is('keranjang_ruangan*')) ? 'active' : '' }} " href="{{url('keranjang_ruangan')}}">Keranjang ruangan</a>
+            <a class="collapse-item {{ (request()->is('keranjang_ruangan*')) ? 'active' : '' }} " href="{{url('keranjang_ruangan')}}">Keranjang Ruangan</a>
             <a class="collapse-item {{ (request()->is('input_ruangan*')) ? 'active' : '' }}" href="{{url('input_ruangan')}}">Data Barang Ruangan</a>
           </div>
         </div>
@@ -144,13 +144,13 @@
       {{-- <li class="nav-item">
         <a class="nav-link" href="{{url('keluar')}}">
           <i class="fas fa-fw fa-paper-plane"></i>
-          <span>Barang Keluar</span></a>
+          <span style="color:white">Barang Keluar</span></a>
       </li> --}}
 
       <li class="nav-item {{ (request()->is('keranjang_keluar*')) ? 'active' : '' }} {{ (request()->is('keluar*')) ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-paper-plane"></i>
-          <span>Barang Keluar</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapseTwo" style="color:white">
+          <i class="fas fa-fw fa-truck-loading" style="color: white"></i>
+          <span style="color:white">Barang Keluar</span>
         </a>
         <div id="collapse3" class="collapse {{ (request()->is('keranjang_keluar*')) ? 'show' : '' }} {{ (request()->is('keluar*')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -163,14 +163,14 @@
 
       {{-- <li class="nav-item">
         <a class="nav-link" href="{{url('masuk')}}">
-          <i class="fas fa-fw fa-rocket"></i>
+          <i class="fas fa-fw fa-cubes"></i>
           <span>Barang Masuk</span></a>
       </li> --}}
 
        <li class="nav-item {{ (request()->is('keranjang_masuk*')) ? 'active' : '' }} {{ (request()->is('masuk*')) ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-rocket"></i>
-          <span>Barang Masuk</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapseTwo" style="color:white">
+          <i class="fas fa-fw fa-cubes" style="color:white"></i>
+          <span style="color:white">Barang Masuk</span>
         </a>
         <div id="collapse4" class="collapse {{ (request()->is('keranjang_masuk*')) ? 'show' : '' }} {{ (request()->is('masuk*')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -182,23 +182,23 @@
       </li>
 
       <li class="nav-item {{ (request()->is('keranjang_rusak_ruangan*')) ? 'active' : '' }} {{ (request()->is('rusak_ruangan*')) ? 'active' : '' }}">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseb" aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-suitcase"></i>
-            <span>Barang Rusak Ruangan</span>
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseb" aria-expanded="true" aria-controls="collapseTwo" style="color:white">
+            <i class="fas fa-fw fa-building" style="color:white"></i>
+            <span style="color:white">Rusak Dalam Ruangan</span>
           </a>
           <div id="collapseb" class="collapse {{ (request()->is('keranjang_rusak_ruangan*')) ? 'show' : '' }}{{ (request()->is('rusak_ruangan*')) ? 'show' : '' }} " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Barang Rusak Dalam</h6>
               <a class="collapse-item {{ (request()->is('keranjang_rusak_ruangan*')) ? 'active' : '' }}" href="{{url('keranjang_rusak_ruangan')}}">Keranjang Rusak Dalam</a>
-              <a class="collapse-item {{ (request()->is('rusak_ruangan*')) ? 'active' : '' }}" href="{{url('rusak_ruangan')}}">Rusak Ruangan</a>
+              <a class="collapse-item {{ (request()->is('rusak_ruangan*')) ? 'active' : '' }}" href="{{url('rusak_ruangan')}}">Rusak Dalam Ruangan</a>
               </div>
           </div>
         </li>
 
         <li class="nav-item {{ (request()->is('keranjang_rusak_luar*')) ? 'active' : '' }} {{ (request()->is('rusak_luar*')) ? 'active' : '' }}">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsec" aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-tasks"></i>
-            <span>Barang Rusak</span>
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsec" aria-expanded="true" aria-controls="collapseTwo" style="color:white">
+            <i class="fas fa-fw  fa-store-alt" style="color:white"></i>
+            <span style="color:white">Rusak Luar Ruangan</span>
           </a>
           <div id="collapsec" class="collapse {{ (request()->is('keranjang_rusak_luar*')) ? 'show' : '' }}{{ (request()->is('rusak_luar*')) ? 'show' : '' }} " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
@@ -210,9 +210,9 @@
         </li>
 
        <li class="nav-item {{ (request()->is('lap_barang_masuk*')) ? 'active' : '' }} {{ (request()->is('lap_barang_keluar*')) ? 'active' : '' }} {{ (request()->is('lap_barang_ruangan*')) ? 'active' : '' }} {{ (request()->is('lap_peminjaman*')) ? 'active' : '' }} {{ (request()->is('lap_rusak_rusak*')) ? 'active' : '' }} {{ (request()->is('lap_rusak_dalam*')) ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-file"></i>
-          <span>Laporan</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5" aria-expanded="true" aria-controls="collapseTwo" style="color:white">
+          <i class="fas fa-fw fa-file" style="color:white"></i>
+          <span style="color:white">Laporan</span>
         </a>
         <div id="collapse5" class="collapse {{ (request()->is('lap_barang_masuk*')) ? 'show' : '' }}{{ (request()->is('lap_barang_keluar*')) ? 'show' : '' }} {{ (request()->is('lap_barang_ruangan*')) ? 'show' : '' }} {{ (request()->is('lap_peminjaman*')) ? 'show' : '' }} {{ (request()->is('lap_rusak_luar*')) ? 'show' : '' }} {{ (request()->is('lap_rusak_dalam*')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -231,17 +231,24 @@
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
-      @elseif(Auth::user()->level=='rayon' || Auth::user()->level=='pj')
-      <div class="sidebar-heading">
+      @elseif(Auth::user()->level=='kasi' || Auth::user()->level=='pj')
+      <div class="sidebar-heading" style="color:white">
         Data - data
       </div>
-        <li class="nav-item {{ (request()->is('pembimbing*')) ? 'active' : '' }}">
-          <a class="nav-link " href="/pembimbing">
-            <i class="fas fa-fw fa-university"></i>
-            <span>Barang Ruangan</span></a>
-        </li>
-         <li class="nav-item {{ (request()->is('input_rusak_dalam*')) ? 'active' : '' }} {{ (request()->is('input_rusak_luar*')) ? 'active' : '' }}">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsea" aria-expanded="true" aria-controls="collapseTwo">
+      <li class="nav-item {{ (request()->is('pembimbing*')) ? 'active' : '' }} {{ (request()->is('input_ruangan*')) ? 'active' : '' }}">
+        <a class="nav-link " href="/pembimbing">
+          <i class="fas fa-fw fa-university" style="color:white"></i>
+          <span style="color:white">Barang Ruangan</span></a>
+      </li>
+        <div id="collapse2" class="collapse {{ (request()->is('keranjang_ruangan*')) ? 'show' : '' }} {{ (request()->is('input_ruangan*')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Data Barang Ruangan</h6>
+            <a class="collapse-item {{ (request()->is('input_ruangan*')) ? 'active' : '' }}" href="{{url('/input_ruangan')}}">Data Barang Ruangan</a>
+          </div>
+        </div>
+      </li>
+         {{-- <li class="nav-item {{ (request()->is('input_rusak_dalam*')) ? 'active' : '' }} {{ (request()->is('input_rusak_luar*')) ? 'active' : '' }}">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsea" aria-expanded="true" aria-controls="collapseTwo" style="color:white">
             <i class="fas fa-fw fa-suitcase"></i>
             <span>Input Barang Rusak</span>
           </a>
@@ -253,9 +260,9 @@
               </div>
           </div>
         </li>
-      @else
+      @else --}}
         <li class="nav-item {{ (request()->is('input_rusak_dalam*')) ? 'active' : '' }} {{ (request()->is('input_rusak_luar*')) ? 'active' : '' }}">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsea" aria-expanded="true" aria-controls="collapseTwo">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsea" aria-expanded="true" aria-controls="collapseTwo" style="color:white">
             <i class="fas fa-fw fa-suitcase"></i>
             <span>Input Barang Rusak</span>
           </a>
@@ -267,6 +274,7 @@
               </div>
           </div>
         </li>
+
       @endif
 
       <!-- Sidebar Toggler (Sidebar) -->
@@ -295,7 +303,24 @@
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="group">
                 <div class="mr-2">
-                    {{ Carbon\Carbon::now()->format('l, d F Y')}}
+                    {{ Carbon\Carbon::now()->isoFormat('dddd, D MMMM Y')}}
+                    <!-- Carbon\Carbon::parse('2019-03-01')->translatedFormat('d F Y'); //Output: "01 Maret 2019" -->
+
+                    <!-- Jam -->
+                    <p id="clock"></p>
+	           <script>
+	           setInterval(customClock, 500);
+	           function customClock() {
+	           var time = new Date();
+	           var hrs = time.getHours();
+	           var min = time.getMinutes();
+	           var sec = time.getSeconds();
+	       
+	           document.getElementById('clock').innerHTML = hrs + ":" + min + ":" + sec;
+	       
+	   }
+	   
+	</script>
                 </div>
               </div>
           </form>
@@ -351,7 +376,11 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright
+            &copy; <script>document.write(new Date().getFullYear()) </script> - SIMASKU. All rights reserved.</span>
+            <p>Developer by:
+            <a href="https://www.instagram.com/ilhmdrf_">Ilham Hamid Maarif</a>
+        </p>
           </div>
         </div>
       </footer>
@@ -383,7 +412,7 @@
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
           <form id="logout-form" action="{{ route('logout') }}" method="POST">
               @csrf
-              <button class="btn btn-dark" type="submit">Logout</button>
+              <button class="btn btn-danger" type="submit">Logout</button>
           </form>
         </div>
       </div>
@@ -420,6 +449,7 @@
 
   @stack('scripts')
   @include('sweet::alert')
+  @include('sweetalert::alert')
 </body>
 
 </html>

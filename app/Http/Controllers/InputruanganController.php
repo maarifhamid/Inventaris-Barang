@@ -43,6 +43,7 @@ class InputruanganController extends Controller
         return view('input_ruangan.view', compact('inputruangan', 'barang', 'ruangan','hitung'));
     }
 
+    // fungsi menampilkan data
     public function store(Request $request)
     {
 
@@ -156,7 +157,7 @@ class InputruanganController extends Controller
             'jumlah_masuk' => $request->jumlah,
             'tanggal_masuk' => $request->tanggal_masuk
         ]);
-        // alihkan halaman ke halaman pegawai
+       
         Alert::success('Success', 'Data Telah Terupdate');
         return redirect('/input_ruangan');
     }
@@ -189,6 +190,7 @@ class InputruanganController extends Controller
     //     return view('input_ruangan.detail', compact('input_ruangan2', 'input_ruangan',));
     // }
 
+    // fungsi export_excel
     public function export_excel()
     {
         return Excel::download(new BarangRuanganExport(), 'barangruangan.xlsx');

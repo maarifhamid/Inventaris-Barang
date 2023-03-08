@@ -6,24 +6,24 @@
 </div>
 <div class="card-body">
     <div class="x_content">
-            <form action="/ruangan/update" method="post">
+            <form action="/ruangan/update" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                   <div class="form-group">
-                    <label for="">ruangan</label>
+                    <label for="">Ruangan</label>
                     <input type="text" name="ruangan" class="form-control" value="{{$ruangan->ruangan}}" required placeholder="Masukan ruangan">
                     <input type="hidden" name="id_ruangan" class="form-control" value="{{$ruangan->id_ruangan}}" required placeholder="Masukan Jenis">
                   </div>
                   <div class="form-group">
-                <label for="">Pembimbing</label>
+                <label for="">KASI</label>
                 <select name="id_pembimbing"  id="" class="form-control" >
-                  <option value="" selected disabled>Pilih Pembimbing</option>
+                  <option value="" selected disabled>Pilih KASI</option>
                   @foreach ($pembimbing as $a)
-                      <option value="{{$a->id}}" {{$a->id==$ruangan->id_pembimbing ? 'selected' : ''}}>{{$a->name}}</option>
+                  <option value="{{$a->id}}" {{$a->id==$ruangan->id_pembimbing? 'selected' : ''}}>{{$a->name}}</option>
                   
                   @endforeach
                 </select>
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="">Pj</label>
                 <select name="id_pj" class="form-control" id="" >
                   <option value="" selected disabled>Pilih Pj</option>
@@ -32,8 +32,8 @@
                   @endforeach
                 </select>
             </div>
-            </
-                </div>
+          </div>
+                </div> --}}
                 
           </div>
                   <button type="submit" class="btn btn-primary">Update</button>

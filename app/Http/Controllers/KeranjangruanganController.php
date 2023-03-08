@@ -151,14 +151,17 @@ class KeranjangruanganController extends Controller
             if($cek!=''){
                 Alert::error('Salah satu barang rusak sudah ada di data utama');
                 return redirect()->back();
-            }else{
+            }
+            }
+            
+            foreach ($select as $s) {
             DB::table('input_ruangan')->insert([
                 'id_ruangan_barang' => $s->id_ruangan,
                 'id_barang' => $s->id_barang,
                 'jumlah_masuk' => $s->jumlah_masuk,
                 'tanggal_masuk' => $s->tanggal_masuk
             ]);
-        }
+            }
 
         foreach ($select as $s) {
             DB::table('keranjang_ruangan')->truncate([
@@ -172,6 +175,5 @@ class KeranjangruanganController extends Controller
 
         Alert::success('Success', 'Data Telah Berhasil Di Input');
         return redirect()->back();
-    }
     }
 }

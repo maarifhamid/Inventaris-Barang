@@ -1,3 +1,4 @@
+{{-- layout dan konten --}}
 @extends('layouts.layout') @section('content')
 <title>Detail Peminjaman</title>
 <div class="card-header py-3">
@@ -5,6 +6,7 @@
 </div>
 <div class="card-body">
     <div class="x_content">
+        {{-- list detail --}}
         <table>
             <thead>
                 <tr>

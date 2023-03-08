@@ -105,7 +105,7 @@ class RusakruanganController extends Controller
     public function status($id,$id2)
     {
         $cek = DB::table('rusak_ruangan')->where('id_rusak_ruangan', $id)->first();
-        $cek2 = DB::table('input_ruangan')->where('id_barang', $id2)->first();
+        $cek2 = DB::table('input_ruangan')->where('id_barang', $id2)->where('id_ruangan_barang',$cek->id_ruangan_rusak)->first();
         DB::table('rusak_ruangan')->where('id_rusak_ruangan', $id)->update([
             'status' => 'sudah_diperbaiki',
         ]);

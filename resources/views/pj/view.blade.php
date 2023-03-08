@@ -47,10 +47,10 @@
                     <td>
                         <div class="row">
                                 <a href="/pj/edit/{{ $u->id }}" class="btn btn-primary btn-sm ml-2">Edit</a>
-                            {{-- <form action="{{ route('user.destroy',$u->id) }}" method="POST">
+                            <form action="{{ route('user.destroy',$u->id) }}" method="POST">
                                 @csrf @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm ml-2">Delete</button>
-                            </form> --}}
+                                <button type="submit" class="btn btn-danger btn-sm ml-2">Hapus</button>
+                            </form> 
                             
                         </div>
                     </td>
@@ -97,7 +97,7 @@
                  
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Kembali</button>
                 <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
             </div>

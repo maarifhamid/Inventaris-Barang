@@ -5,7 +5,7 @@
 </div>
 <div class="card-body">
     <div class="x_content">
-        <form action="/peminjaman/update" method="post">
+        <form action="/peminjaman/update" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="">Nama Peminjam</label>

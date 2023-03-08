@@ -2,7 +2,7 @@
 <title>Input Barang Rusak</title>
 <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-dark">Input Barang Rusak</h6>
+    <h6 class="m-0 font-weight-bold text-dark">Input Barang Rusak Dalam Ruangan</h6>
 </div>
 <div class="card-body">
     <div class="x_content">
@@ -16,7 +16,7 @@
         </ul>
         <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <form action="/input_rusak_dalam/input" method="post">
+            <form action="/input_rusak_dalam/input" method="post" enctype="multipart/form-data">
                 @csrf
                 <br>
                 <div class="form-group">
@@ -51,12 +51,12 @@
                     <label for="">Tanggal</label>
                     <input type="date" name="tanggal_rusak" value="{{ Carbon\Carbon::now()->format('Y-m-d')}}" class="form-control" readonly>
                 </div>
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
         </div>
             
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <form action="/input_rusak_dalam/input" method="post">
+            <form action="/input_rusak_dalam/input" method="post" enctype="multipart/form-data">
                 @csrf
                 <br>
                 <div class="form-group">
@@ -91,7 +91,7 @@
                     <label for="">Tanggal</label>
                     <input type="date" name="tanggal_rusak" value="{{ Carbon\Carbon::now()->format('Y-m-d')}}" class="form-control" readonly>
                 </div>
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
         </div>
            

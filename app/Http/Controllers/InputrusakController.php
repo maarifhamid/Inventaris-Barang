@@ -29,7 +29,7 @@ class InputrusakController extends Controller
     public function index_luar()
 
     {
-         $kategori=DB::table('kategori')->get();
+        $kategori=DB::table('kategori')->get();
         $barang = DB::table('barangs')->get();
   
         return view('keranjang_rusak_luar.input', compact('barang','kategori'));
@@ -59,14 +59,14 @@ class InputrusakController extends Controller
             $tes = DB::table('input_ruangan')->where('id_barang', $request->id_barang)->where('id_ruangan_barang',$request->id_ruangan)->first();
             if($tes == ''){
             Alert::error('Barang Tidak ada di ruangan', 'Gagal');
-            return redirect()->back();
+            return redirect()->back()->with('errors', 'Barang Tidak ada di ruangan');
         }
             $sin = DB::table('keranjang_rusak_ruangan')->where('id_barang_rusak', $request->id_barang)->where('id_ruangan_rusak',$request->id_ruangan)->count();
             if ($sin == 0) {       
             $tes = DB::table('input_ruangan')->where('id_barang', $request->id_barang)->where('id_ruangan_barang',$request->id_ruangan)->first();
             if ($tes->jumlah_masuk < $request->jumlah) {
                 Alert::error('Jumlah tidak boleh melewati stok', 'Gagal');
-                return redirect()->back();
+                return redirect()->back()->with('errors', 'Jumlah tidak boleh melewati stok');
             } else {
                     DB::table('keranjang_rusak_ruangan')->insert([
                         'id_barang_rusak' =>  $request->id_barang,
@@ -82,10 +82,10 @@ class InputrusakController extends Controller
             
         if ($sin > 0) {
             Alert::error('Salah satu barang Sudah Ada Di Keranjang');
-            return redirect()->back();
+            return redirect()->back()->with('errors', 'Salah satu barang Sudah Ada Di Keranjang');
         }
         Alert::success('Success', 'Data Telah Terinput');
-        return redirect()->back();
+        return redirect()->back()->withSuccess('Data berhasil tersimpan');
     }
 
     public function store_luar(Request $request)

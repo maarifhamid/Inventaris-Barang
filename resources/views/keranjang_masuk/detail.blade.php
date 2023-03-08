@@ -1,6 +1,8 @@
+{{-- set up layout dan konten --}}
 @extends('layouts.layout')
 @section('content')
 <title>Data Barang</title>
+{{-- library --}}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
@@ -8,6 +10,7 @@
   <h6 class="m-0 font-weight-bold text-dark">Detail</h6>
 </div>
 <div class="card-body">
+    {{-- list detail --}}
     <table>
         <tr>
             <td>Barang</td>

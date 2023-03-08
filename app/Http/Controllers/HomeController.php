@@ -24,6 +24,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    //  fungsi untuk menampilkan jumlah pada dashboard
     public function index()
     {
         if (Auth::user()->level=='admin') {
@@ -63,7 +65,7 @@ class HomeController extends Controller
 
         $rusak_dalam=DB::table('rusak_ruangan')->get();
         $hitung_dalam=count($rusak_dalam);
-         $rusak_luar=DB::table('rusak_luar')->get();
+        $rusak_luar=DB::table('rusak_luar')->get();
         $hitung_luar=count($rusak_luar);
 
 
@@ -73,8 +75,4 @@ class HomeController extends Controller
         }
     }
 
-    public function update_siswa(Request $request)
-    {
-        
-    }
 }

@@ -42,7 +42,7 @@
         <input type="hidden" name="akhir" value="{{$req2}}">
        <input type="submit" class="btn btn-warning" value="EXPORT EXCEL">
        
-       </form>
+    </form>
     @endif
        <br>
     @include('laporan.table_keluar', $keluar )

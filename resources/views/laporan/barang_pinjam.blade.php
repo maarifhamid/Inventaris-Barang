@@ -56,7 +56,6 @@
         <input type="hidden" name="akhir" value="{{$req2}}">
         <input type="hidden" name="status" value="{{$req3}}">
        <input type="submit" class="btn btn-warning" value="EXPORT EXCEL">
-       
        </form>
     @endif
        <br>

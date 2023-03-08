@@ -1,6 +1,8 @@
+{{-- set layout dan konten --}}
 @extends('layouts.layout')
 @section('content')
 <title>Keranjang Data Barang Ruangan</title>
+{{-- library untuk sweetalert --}}
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.js"></script>
 <div class="card-header py-3">
@@ -8,15 +10,15 @@
 </div>
 <div class="card-body">
   <div class="table-responsive">
-   
+   {{-- tambah data --}}
     <button class="btn btn-success" data-toggle="modal" data-target="#tambah">Tambah Data</button>
       <br>
       <br>
+      {{-- tabel --}}
       <table id="dataTable" class="table table-bordered" cellspacing="0">
           <thead>
             <tr>
-                  <th>No</th>
-                
+                  <th>No</th>                
                   <th>Ruangan</th>
                   <th>Barang</th>
                   <th>Jumlah</th>
@@ -25,18 +27,20 @@
             </tr>
           </thead>
           <tbody>
+            {{-- tampilkan data pada tabel --}}
             @foreach ($inputruangan as $i => $u)
             <tr class="data-row">
-                  <td>{{++$i}}</td>
-                 
+                  <td>{{++$i}}</td>                
                   <td>{{$u->ruangan}}</td>
                   <td>{{$u->nama_barang}}</td>
                   <td>{{$u->jumlah_masuk}}</td>
                   <td>{{$u->tanggal_masuk}}</td>
                   
               <td>  
+                {{-- button edit dan hapus --}}
                 <div class="row">
                    <a href="/keranjang_ruangan/edit/{{ $u->id_input_ruangan }}" class="btn btn-primary btn-sm ml-2">Edit</a>
+                   {{-- jika klik hapus maka jalankan js --}}
                    <a href="javascript:void(0)" id="hapus" data-id="{{ $u->id_input_ruangan }}" class="btn btn-danger btn-sm ml-2">Hapus</a>
                    
                 </div>
@@ -47,12 +51,14 @@
         </table>
   </div>
   <div class="text-center">
+    {{-- link mengarah ke inputruangan --}}
   <a href="/inputruangan" class="btn btn-dark">Masukan Semua Data</a>
   </div>
   <br>
+  {{-- keterangan --}}
    <font><b>*Mohon untuk langsung klik masukkan semua data untuk memasukan ke dalam data barang ruangan</b></font>
 </div>
-
+{{-- form tambah --}}
 <div id="tambah" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <!-- Modal content-->
@@ -64,7 +70,8 @@
           </button>
         </div>
         <div class="modal-body">
-        <form action="/keranjang_ruangan/store" method="post">
+          {{-- jalankan action --}}
+        <form action="/keranjang_ruangan/store" method="post" enctype="multipart/form-data">
             @csrf
              <div class="form-group">
               <label for="">Ruangan</label><br>
@@ -106,7 +113,7 @@
              
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Kembali</button>
           <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
         </div>
@@ -114,7 +121,7 @@
     </div>
   </div>
 
-  
+  {{-- script tambah field --}}
   @push('scripts')
   <script type="text/javascript">
         $(document).ready(function() {
@@ -128,18 +135,20 @@
 		if(x < max_fields){ //max input box allowed
 			x++; //text box increment
       
+      // tambahkan form
 			$(wrapper).append('<div><table><tr><td><select name="id_barang[]" id="" class="myselect" required style="width:200px"><option selected disabled value="">Pilih Jenis Barang</option>@foreach ($barang as $j)<option value="{{$j->id_barang}}">{{$j->nama_barang}}</option>@endforeach</select></div></td><td style="padding-left:80px"><input type="number" name="jumlah[]" class="form-control" required placeholder="Masukan Jumlah" required></td></tr></table><a href="#" class="remove_field">Remove</a></div>');
       $('.myselect').select2();
     }
   });
   
 
-	
+	// fungsi untuk hapus
 	$(wrapper).on("click",".remove_field", function(e){ //user click on remove text
 		e.preventDefault(); $(this).parent('div').remove(); x--;
 	})
 });
 
+// untuk menampilkan pesan ketika klik hapus
 $(document).on('click','#hapus',function(){
   var id = $(this).data("id");
   Swal.fire({

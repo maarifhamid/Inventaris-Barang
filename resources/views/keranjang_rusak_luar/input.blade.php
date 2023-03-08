@@ -2,12 +2,13 @@
 <title>Input Barang Rusak</title>
 <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-dark">Input Barang Rusak</h6>
+    <h6 class="m-0 font-weight-bold text-dark">Input Barang Rusak Luar Ruangan</h6>
 </div>
 <div class="card-body">
     <div class="x_content">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
+            {{-- list pertama kali aktif yaitu fitur scan, makanya true --}}
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Scan</a>
         </li>
         <li class="nav-item">
@@ -15,8 +16,9 @@
         </li>
         </ul>
         <div class="tab-content" id="myTabContent">
+            {{-- jika memilih fitur scan, maka tab nya jadi fade --}}
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <form action="/input_rusak_luar/input" method="post">
+            <form action="/input_rusak_luar/input" method="post" enctype="multipart/form-data">
                 @csrf
                 <br>
                 <div class="form-group">
@@ -26,7 +28,7 @@
                 <label for="video" style="form-control float:top" class="control-label">Scan</label><br>
                 <div class="embed-responsive embed-responsive-21by9">
                 <div class="form-group">
-                    
+                    {{-- preview kamera bentuk kotak --}}
                     <video name="video"  id="preview" class="embed-responsive-item"></video>
                 </div>
                 </div>
@@ -42,12 +44,13 @@
                     <label for="">Tanggal</label>
                     <input type="date" name="tanggal_rusak" value="{{ Carbon\Carbon::now()->format('Y-m-d')}}" class="form-control" readonly>
                 </div>
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
         </div>
-            
+            {{-- jika yang dipilih fitur tanpa scan, maka tanoa scan jadi fade --}}
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <form action="/input_rusak_luar/input" method="post">
+            {{-- menjalankan aksi --}}
+            <form action="/input_rusak_luar/input" method="post" enctype="multipart/form-data">
                 @csrf
                 <br>
                 <div class="form-group">
@@ -73,7 +76,7 @@
                     <label for="">Tanggal</label>
                     <input type="date" name="tanggal_rusak" value="{{ Carbon\Carbon::now()->format('Y-m-d')}}" class="form-control" readonly>
                 </div>
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
         </div>
            
@@ -82,7 +85,7 @@
     </div>
 </div>
 
-
+{{-- fungsi scan barcode dengan kamera --}}
 <script type="text/javascript">
 
             let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
@@ -93,7 +96,8 @@
                 });
             });
             Instascan.Camera.getCameras().then(function (cameras) {
-                if (cameras.length > 0) {
+                // jika kamera > 0, maka mulai kamera, jika tidak maka kamera tidak ditemukan
+                if (cameras.length > 0) { 
                     scanner.start(cameras[0]);
                 } else {
                     console.error('No cameras found.');

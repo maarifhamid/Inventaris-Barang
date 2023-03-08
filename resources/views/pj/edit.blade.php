@@ -6,7 +6,7 @@
 </div>
 <div class="card-body">
     <div class="x_content">
-            <form action="/user_pj/update" method="post">
+            <form action="/user_pj/update" method="post" enctype="multipart/form-data">
                     @csrf
                   <div class="form-group">
                       <label for="">Nama</label>

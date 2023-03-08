@@ -1,6 +1,8 @@
+{{-- layout dan konten --}}
 @extends('layouts.layout')
 @section('content')
 <title>Data Keranjang Barang Masuk</title>
+{{-- library untuk buat pesan dengan sweetalert --}}
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.js"></script>
 <div class="card-header py-3">
@@ -8,9 +10,11 @@
 </div>
 <div class="card-body">
   <div class="table-responsive">
+    {{-- link ketika tambah data --}}
     <a href="/keranjang_masuk/form_input" class="btn btn-success">Tambah Data</a>
       <br>
       <br>
+      {{-- tabel --}}
       <table id="dataTable" class="table table-bordered" cellspacing="0">
           <thead>
             <tr>
@@ -22,6 +26,7 @@
             </tr>
           </thead>
           <tbody>
+            {{-- tampilkan data ke dalam tabel --}}
             @foreach ($masuk as $i => $u)
             <tr class="data-row">
                   <td>{{++$i}}</td>
@@ -30,9 +35,12 @@
                   <td>{{$u->tanggal_masuk}}</td>
                   
               <td>  
+                {{-- button edit hapus detail --}}
                 <div class="row">
                    <a href="/keranjang_masuk/edit/{{ $u->id_masuk }}" class="btn btn-primary btn-sm ml-2">Edit</a>
+                   {{-- apabila klik hapus, maka javascript dijalankan --}}
                    <a href="javascript:void(0)" id="hapus" data-id="{{ $u->id_masuk }}" class="btn btn-danger btn-sm ml-2">Hapus</a>
+                   {{-- link mengarahkan ke form detail apabila klik detail --}}
                    <a href="/keranjang_masuk/detail_masuk/{{ $u->id_masuk }}" class="btn btn-warning btn-sm ml-2">Detail</a>
                 </div>
               </td>
@@ -42,12 +50,15 @@
         </table>
   </div>
   <div class="text-center">
+    {{-- link masukan semua data --}}
   <a href="/inputmasuk" class="btn btn-dark">Masukan Semua Data</a>
   </div>
   <br>
+  {{-- keterangan --}}
    <font><b>*Mohon untuk langsung klik masukkan semua data untuk memasukan ke dalam data barang masuk</b></font>
 </div>
-  
+
+{{-- script pesan apabila klik hapus --}}
 @push('scripts')
     <script>
       $(document).on('click','#hapus',function(){

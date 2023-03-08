@@ -1,28 +1,28 @@
 @extends('layouts.layout')
 @section('content')
-<title>Data Barang Rusak Ruangan</title>
+<title>Data Barang Rusak Luar Ruangan</title>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 </div>
  <div class="row"> 
   <div class="col-xl-6 col-md-12 mb-4">
-    <div class="card border-left-dark shadow h-100 py-2">
+    <div class="card border-left-primary shadow h-100 py-2">
       <div class="card-body">
         <div class="row no-gutters align-items-center">
           <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Total jumlah barang Rusak di ruangan</div>
+            <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Total jumlah barang Rusak di luar ruangan</div>
             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$rusak_luar}}</div>
           </div>
           <div class="col-auto">
-            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+            <i class="far fa-building fa-2x text-gray-300"></i>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="col-xl-6 col-md-12 mb-4">
-    <div class="card border-left-dark shadow h-100 py-2">
+    <div class="card border-left-primary shadow h-100 py-2">
       <div class="card-body">
         <div class="row no-gutters align-items-center">
           <div class="col mr-2">
@@ -30,7 +30,7 @@
             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$hitung}}</div>
           </div>
           <div class="col-auto">
-            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@
  </div>
  <div class="card shadow mb-4">
 <div class="card-header py-3">
-  <h6 class="m-0 font-weight-bold text-dark">Data Barang Rusak Ruangan</h6>
+  <h6 class="m-0 font-weight-bold text-dark">Data Barang Rusak Luar Ruangan</h6>
 </div>
 <div class="card-body">
   <div class="table-responsive">
@@ -54,7 +54,7 @@
                   <th>Penginput</th>
                   <th>Barang</th>
                   <th>Jumlah Rusak</th>
-                  <th>Tanggal Masuk</th>
+                  <th>Tanggal Rusak</th>
                   <th>Status</th>
                   <th>Opsi</th>
             </tr>

@@ -10,17 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//route pertana kali dibuka
 Route::get('/', function () {
     return view('auth.login');
 });
 
+//ubah password
 Route::get('change-password', 'ChangePasswordController@index');
 Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
 
 
 Auth::routes();
-
 
 Route::post('/user/update','UserController@update');
 Route::get('/home', 'HomeController@index');
@@ -29,7 +29,7 @@ Route::get('user/json', 'UserController@json');
 Route::resource('user', 'UserController');
 Route::resource('barang', 'BarangController');
 
-
+// barang
 Route::post('/barang/post', 'BarangController@update');
 Route::get('/barang/delete/{id_barang}', 'BarangController@delete');
 Route::get('/barang/edit/{id_barang}', 'BarangController@edit');
@@ -57,15 +57,15 @@ Route::post('/store_pj','UserController@store_pj');
 Route::get('/pj/edit/{id}','UserController@edit_pj');
 Route::post('/user_pj/update/','UserController@update_pj');
 
-Route::get('/rayon','UserController@rayon');
-Route::post('/store_rayon','UserController@store_rayon');
-Route::get('/rayon/edit/{id}','UserController@edit_rayon');
-Route::post('/user_rayon/update/','UserController@update_rayon');
+Route::get('/kasi','UserController@kasi');
+Route::post('/store_kasi','UserController@store_kasi');
+Route::get('/kasi/edit/{id}','UserController@edit_kasi');
+Route::post('/user_kasi/update/','UserController@update_kasi');
 
-Route::get('/bukan_pj','UserController@bukan_pj');
-Route::post('/store_bukan_pj','UserController@store_bukan_pj');
-Route::get('/bukan_pj/edit/{id}','UserController@edit_bukan_pj');
-Route::post('/user_bukan_pj/update/','UserController@update_bukan_pj');
+Route::get('/pegawai','UserController@pegawai');
+Route::post('/store_pegawai','UserController@store_pegawai');
+Route::get('/pegawai/edit/{id}','UserController@edit_pegawai');
+Route::post('/user_pegawai/update/','UserController@update_pegawai');
 
 // Peminjaman
 Route::get('/peminjaman', 'PeminjamanController@index');
@@ -77,7 +77,6 @@ Route::post('/peminjaman/update', 'PeminjamanController@update');
 Route::get('/peminjaman/delete/{id_peminjaman}', 'PeminjamanController@delete');
 
 //Input Barang Ruangan
-
 Route::get('/input_ruangan', 'InputruanganController@index');
 Route::post('/input_ruangan/store', 'InputruanganController@store');
 Route::get('/input_ruangan/edit/{id_input_ruangan}', 'InputruanganController@edit');
@@ -115,8 +114,6 @@ Route::get('/rusak_luar/edit/{id_rusak_luar}', 'RusakluarController@edit');
 Route::post('/rusak_luar/update', 'RusakluarController@update');
 Route::get('/rusak_luar/delete/{id_rusak_luar}', 'RusakluarController@delete');
 Route::get('/rusak_luar/status/{id_rusak_luar}/{id_barang_rusak}', 'RusakluarController@status');
-
-
 
 //keranjang_ruangan
 Route::get('/keranjang_ruangan', 'KeranjangruanganController@index');
@@ -162,9 +159,6 @@ Route::get('/keranjang_rusak_luar/edit/{id_rusak}', 'KeranjangrusakluarControlle
 Route::post('/keranjang_rusak_luar/update', 'KeranjangrusakluarController@update');
 Route::get('/keranjang_rusak_luar/hapus/{id_rusak}', 'KeranjangrusakluarController@delete');
 
-
-
-
 //Export
 Route::get('/peminjaman/export_excel', 'PeminjamanController@export_excel');
 Route::get('/barang_ruangan/export_excel', 'InputruanganController@export_excel');
@@ -194,10 +188,10 @@ Route::get('/peminjaman_json','DatatableController@peminjaman_json');
 Route::get('/rusak_ruangan_json','DatatableController@rusak_ruangan_json');
 Route::get('/rusak_luar_json','DatatableController@rusak_luar_json');
 
-
-
-
+//qrCode
 Route::get('/barang/qrcode/{id_barang}','BarangController@qrcode');
+
+//Laporan
 Route::get('/lap_barang_masuk','LaporanController@lap_barang_masuk');
 Route::post('/lap_barang_masuk_input','LaporanController@lap_barang_masuk');
 Route::get('/lap_barang_keluar','LaporanController@lap_barang_keluar');
@@ -214,7 +208,7 @@ Route::post('/lap_rusak_dalam_input','LaporanController@lap_rusak_dalam');
 
 Route::get('/pembimbing','PembimbingController@pembimbing');
 
-//inputrusak pj,pem,notpj
+//inputrusak kasi,pegawai
 Route::get('/input_rusak_dalam','InputrusakController@index_dalam');
 Route::post('/input_rusak_dalam/input','InputrusakController@store_dalam');
 

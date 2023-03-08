@@ -7,7 +7,7 @@
 </div>
  <div class="row"> 
   <div class="col-xl-6 col-md-12 mb-4">
-    <div class="card border-left-dark shadow h-100 py-2">
+    <div class="card border-left-primary shadow h-100 py-2">
       <div class="card-body">
         <div class="row no-gutters align-items-center">
           <div class="col mr-2">
@@ -22,7 +22,7 @@
     </div>
   </div>
   <div class="col-xl-6 col-md-12 mb-4">
-    <div class="card border-left-dark shadow h-100 py-2">
+    <div class="card border-left-primary shadow h-100 py-2">
       <div class="card-body">
         <div class="row no-gutters align-items-center">
           <div class="col mr-2">
@@ -46,32 +46,38 @@
     {{-- <button class="btn btn-success" data-toggle="modal" data-target="#tambah">Tambah Data</button>
       <br>
       <br> --}}
-       {{-- <a href="/barang_ruangan/export_excel" class="btn btn-warning my-3" target="_blank">EXPORT EXCEL</a> --}}
+       {{--<a href="/barang_ruangan/export_excel" class="btn btn-warning my-3" target="_blank">EXPORT EXCEL</a> --}}
       
-      <table id="dataTable" class="table table-bordered" cellspacing="0">
+      <table id="example" class="table table-bordered js-basic-example dataTable" cellspacing="0">
           <thead>
             <tr>
                   <th>Ruangan</th>
                   <th>Barang</th>
-                  <th>Jumlah Baik</th>
+                  <th>Kondisi Baik</th>
                   <th>Tanggal Masuk</th>
-                  <th>Jumlah Rusak</th>
+                  <th>Kondisi Rusak</th>
                   <th>Total</th>
             </tr>
           </thead>
-          <tbody>   
-            @foreach ($inputruangan2 as $r)
-            <tr>
-                <td>{{$r->ruangan}}</td>
-                <td>{{$r->nama_barang}}</td>
-                <td>{{$r->jumlah_masuk}}</td>
-                <td>{{$r->tanggal_masuk}}</td>
-                <td>{{$r->jumlah_rusak_ruangan}}</td>
-                <td>{{$r->jumlah_masuk + $r->jumlah_rusak_ruangan}}</td>
-              </tr>
-            @endforeach
-          </tbody>
         </table>
   </div>
-</div>  
+</div>
+
+   <script>
+ $(document).ready( function () {
+    $('#example').DataTable({
+           processing: true,
+           serverSide: true,
+           ajax: "/input_ruangan_json",
+           columns: [
+                    { data: 'ruangan', name: 'ruangan' },
+                    { data: 'nama_barang', name: 'nama_barang' },
+                    { data: 'jumlah_masuk', name: 'jumlah_masuk' },
+                    { data: 'tanggal_masuk', name: 'tanggal_masuk' },
+                    { data: 'jumlah_rusak_ruangan', name: 'jumlah_rusak_ruangan' },
+                    { data: 'total', name: 'total' },
+                 ]
+        });
+     });
+</script>
 @endsection

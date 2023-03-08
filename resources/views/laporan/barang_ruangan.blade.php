@@ -43,7 +43,7 @@
     <form action="/lap_barang_ruangan/export_excel">
         <input type="hidden" name="ruangan" value="{{$req1}}">
        <input type="submit" class="btn btn-warning" value="EXPORT EXCEL">
-       
+
        </form>
     @endif
        <br>

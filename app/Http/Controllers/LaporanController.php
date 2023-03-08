@@ -12,7 +12,8 @@ use App\Exports\LaporanRusakLuar;
 use App\Exports\LaporanRusakDalam;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
-
+//use Barryvdh\DomPDF\Facades\PDF;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
 class LaporanController extends Controller
 {
@@ -188,6 +189,7 @@ class LaporanController extends Controller
                     })->get();
 
         return Excel::download(new LaporanPeminjaman($data), 'lap_peminjaman.xlsx');
+        
     }
 
     public function export_rusak_dalam(Request $request)

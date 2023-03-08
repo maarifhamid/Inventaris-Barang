@@ -146,6 +146,7 @@ class KeranjangrusakluarController extends Controller
                 Alert::error('Barang rusak sudah ada di data utama');
                 return redirect()->back();
             }else{
+                
         DB::table('rusak_luar')->insert([
             'id_barang_rusak_luar' =>  $s->id_barang_rusak_luar,
             'jumlah_rusak_luar' => $s->jumlah_rusak_luar,

@@ -2,15 +2,15 @@
 @section('content')
 <title>Dashboard</title>
 <div class="card-header">
-     @if (Auth::user()->level=='rayon')
-        Dashboard Pembimbing
-    @elseif(Auth::user()->level=='pj')
-        Dashboard Pj Ruangan
+     @if (Auth::user()->level=='kasi')
+        Dashboard KASI
+    {{-- @elseif(Auth::user()->level=='pegawai')
+        Dashboard Pegawai --}}
     @else
-        Dashboard
+        Dashboard Pegawai
     @endif
 </div>
 <div class="card-body">
-    <h1 align="center">Sistem Manajemen Sarana & Prasarana</h1>
+    <h1 align="center">SIMASKU</h1>
 </div>
 @endsection

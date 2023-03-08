@@ -25,8 +25,6 @@ class UserController extends Controller
 
     public function index()
     {
-
-
         $user = DB::table("users")->where('level','admin')->get();
         return view('user.view', compact('user'));
     }
@@ -38,22 +36,22 @@ class UserController extends Controller
         return view('pj.view', compact('user','ruangan'));
     }
 
-    public function rayon()
+    public function kasi()
     {
 
-        $user = DB::table("users")->where('level','rayon')->get();
+        $user = DB::table("users")->where('level','kasi')->get();
 
         $ruangan=DB::table('ruangan')->get();
 
-        return view('rayon.view', compact('user','ruangan'));
+        return view('kasi.view', compact('user','ruangan'));
     }
 
-     public function bukan_pj()
+     public function pegawai()
     {
 
-        $user = DB::table("users")->where('level','bukan_pj')->get();
+        $user = DB::table("users")->where('level','pegawai')->get();
 
-        return view('bukan_pj.view', compact('user'));
+        return view('pegawai.view', compact('user'));
     }
 
     /**
@@ -182,9 +180,9 @@ class UserController extends Controller
         return redirect('/pj');
     }
 
-    //rayon
+    //kasi
 
-    public function store_rayon(Request $request)
+    public function store_kasi(Request $request)
     {
       
         $request->validate([
@@ -200,17 +198,17 @@ class UserController extends Controller
         return redirect()->back();
     }
 
-    public function edit_rayon($id)
+    public function edit_kasi($id)
     {
         $user2 = DB::table('users')->where('id', $id)->first();
         
 
         $ruangan = DB::table('ruangan')->get();
 
-        return view('rayon.edit', compact('ruangan', 'user2'));
+        return view('kasi.edit', compact('ruangan', 'user2'));
     }
 
-    public function update_rayon(Request $request)
+    public function update_kasi(Request $request)
     {
         
         DB::table('users')->where('id',$request->id)->update([
@@ -221,12 +219,12 @@ class UserController extends Controller
         ]);
 
         Alert::success('Success', 'Data Telah Terupdate');
-        return redirect('/rayon');
+        return redirect('/kasi');
     }
 
     //bukan pj
 
-    public function store_bukan_pj(Request $request)
+    public function store_pegawai(Request $request)
     {
       
         $request->validate([
@@ -242,17 +240,17 @@ class UserController extends Controller
         return redirect()->back();
     }
 
-    public function edit_bukan_pj($id)
+    public function edit_pegawai($id)
     {
         $user2 = DB::table('users')->where('id', $id)->first();
         
 
         $ruangan = DB::table('ruangan')->get();
 
-        return view('bukan_pj.edit', compact('ruangan', 'user2'));
+        return view('pegawai.edit', compact('ruangan', 'user2'));
     }
 
-    public function update_bukan_pj(Request $request)
+    public function update_pegawai(Request $request)
     {
         
         DB::table('users')->where('id',$request->id)->update([
@@ -263,7 +261,7 @@ class UserController extends Controller
         ]);
 
         Alert::success('Success', 'Data Telah Terupdate');
-        return redirect('/bukan_pj');
+        return redirect('/pegawai');
     }
 
 

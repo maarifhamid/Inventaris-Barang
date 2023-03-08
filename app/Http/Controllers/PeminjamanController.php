@@ -7,6 +7,7 @@ use DB;
 use Alert;
 use App\Exports\PeminjamanExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Facades\PDF;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -206,4 +207,10 @@ class PeminjamanController extends Controller
     {
         return Excel::download(new PeminjamanExport(), 'peminjaman.xlsx');
     }
+
+    public function export_pdf()
+    {
+        return PDF::download(new PeminjamanExport(), 'peminjaman.pdf');
+    }
 }
+
